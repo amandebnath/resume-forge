@@ -1,0 +1,133 @@
+/* ===========================================================
+   layout.css — top bar, capsule controls, 3-panel workspace,
+   footer, responsiveness
+   =========================================================== */
+
+/* ---------- Top bar ---------- */
+.topbar {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 30;
+  flex: 0 0 auto;
+}
+
+.topbar__brand { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+.brand-mark { width: 32px; height: 32px; display: grid; place-items: center; }
+.brand-mark svg { display: block; border-radius: 9px; box-shadow: var(--shadow-1); }
+.brand-name { font-weight: 700; font-size: 16px; letter-spacing: -.2px; }
+
+.topbar__controls {
+  display: flex; align-items: center; gap: 10px;
+  margin-left: auto; flex-wrap: nowrap;
+}
+
+/* ---- capsule control: 3D label bar + adjacent dropdown ---- */
+.ctrl {
+  display: flex; flex-direction: row; align-items: stretch; height: 34px;
+  border: 1px solid var(--border); border-radius: 9px; overflow: hidden;
+  background: var(--surface-2); box-shadow: var(--shadow-1);
+}
+.ctrl__label {
+  display: flex; align-items: center; padding: 0 11px;
+  font-size: 10px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase;
+  color: var(--text-2); white-space: nowrap;
+  /* raised "3D solid bar": light top highlight, dark bottom shadow, right bevel */
+  background-image: linear-gradient(180deg, rgba(255,255,255,.12), rgba(0,0,0,.12));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.30),
+              inset 0 -2px 3px rgba(0,0,0,.14),
+              inset -1px 0 0 var(--border);
+}
+.topbar .ctrl .select {
+  border: none; background-color: transparent; border-radius: 0; height: 100%;
+  padding: 0 24px 0 10px; box-shadow: none; font-weight: 600; min-width: 0;
+}
+.ctrl .select:focus { box-shadow: none; background-color: transparent; }
+
+.ctrl--zoom .zoom { border: none; background: transparent; padding: 0 4px; height: 100%; }
+.zoom { display: flex; align-items: center; gap: 2px; }
+.zoom__btn { width: 24px; height: 24px; border: none; background: transparent; color: var(--text-2); font-size: 16px; border-radius: 4px; line-height: 1; }
+.zoom__btn:hover { background: var(--bg-2); color: var(--text); }
+.zoom__val { font-size: 12px; width: 46px; text-align: center; color: var(--text-2); font-variant-numeric: tabular-nums; border: none; background: transparent; outline: none; padding: 0; }
+.zoom__val:focus { color: var(--text); }
+.zoom__val:hover { color: var(--text); cursor: text; }
+
+.panel-switch { display: none; }
+
+/* ---------- Workspace 3 columns ---------- */
+.workspace {
+  flex: 1 1 auto; min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(320px, 380px) minmax(0, 1fr) minmax(300px, 360px);
+  overflow: hidden;
+}
+
+.panel { display: flex; flex-direction: column; min-height: 0; min-width: 0; background: var(--surface); }
+.panel--left  { border-right: 1px solid var(--border); }
+.panel--right { border-left: 1px solid var(--border); }
+.panel--center { background: var(--stage-bg); }
+
+.panel__head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 14px 16px 10px; border-bottom: 1px solid var(--border); flex: 0 0 auto;
+}
+.panel__title { font-size: 15px; font-weight: 700; }
+.panel__hint { font-size: 11px; color: var(--text-3); }
+.panel__body { flex: 1 1 auto; overflow-y: auto; padding: 12px 14px 24px; }
+.panel__foot { flex: 0 0 auto; border-top: 1px solid var(--border); padding: 12px 14px; background: var(--surface); }
+
+.add-section { display: flex; gap: 8px; }
+
+/* ---------- Center preview ---------- */
+.preview-scroll {
+  flex: 1 1 auto; min-height: 0; overflow: auto;
+  padding: 28px; display: flex; justify-content: center; align-items: flex-start;
+}
+.preview-stage { transform-origin: top center; }
+
+/* ---------- Footer ---------- */
+.appfooter {
+  flex: 0 0 auto; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--text-3); text-align: center;
+  background: var(--surface); border-top: 1px solid var(--border); padding: 0 12px;
+}
+.appfooter .sep { margin: 0 9px; color: var(--border-2); }
+.appfooter .copy { font-weight: 600; color: var(--text-2); }
+
+/* ---------- Large desktop tuning ---------- */
+@media (min-width: 1700px) { .workspace { grid-template-columns: 420px minmax(0,1fr) 400px; } }
+@media (min-width: 2200px) { .workspace { grid-template-columns: 460px minmax(0,1fr) 440px; } }
+
+/* ---------- Smaller desktops / laptops ---------- */
+@media (max-width: 1320px) {
+  .workspace { grid-template-columns: 320px minmax(0,1fr) 300px; }
+  .topbar__controls { gap: 7px; }
+  .ctrl__label { padding: 0 8px; letter-spacing: .4px; }
+  .topbar .ctrl .select { padding: 0 22px 0 8px; }
+}
+
+/* ---------- Tablet / narrow: collapse to single panel with switcher ---------- */
+@media (max-width: 1000px) {
+  .workspace { grid-template-columns: 1fr; }
+  .panel { display: none; }
+  .panel.is-shown { display: flex; }
+  .panel--left, .panel--right { border: none; }
+  .panel-switch {
+    display: flex; gap: 4px; margin-left: 8px;
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 3px;
+  }
+  .panel-switch__btn { border: none; background: transparent; color: var(--text-2); font-weight: 600; font-size: 13px; padding: 5px 12px; border-radius: 6px; }
+  .panel-switch__btn.is-active { background: var(--primary); color: #fff; }
+  .topbar { flex-wrap: wrap; height: auto; padding: 10px 12px; gap: 10px; }
+  .topbar__controls { width: 100%; order: 3; flex-wrap: wrap; margin-left: 0; }
+}
+
+/* ---------- Print: hide chrome ---------- */
+@media print { .appfooter { display: none !important; } }
+.appfooter__ver { font-weight: 600; color: var(--text-2); font-variant-numeric: tabular-nums; }

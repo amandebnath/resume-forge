@@ -1,0 +1,102 @@
+/* ===========================================================
+   base.css — reset, tokens, light/dark themes, Inter typography
+   =========================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  /* Interface font: Inter (per spec), with safe fallbacks */
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Resume fonts kept classic + ATS-safe */
+  --font-serif: "Georgia", "Times New Roman", Times, serif;
+  --font-sans:  "Arial", "Helvetica Neue", Helvetica, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-1: 0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.10);
+  --shadow-2: 0 4px 12px rgba(16,24,40,.10);
+  --shadow-pop: 0 10px 30px rgba(16,24,40,.18);
+
+  --tap: 200ms cubic-bezier(.2,.7,.3,1);
+}
+
+/* ---------- Light theme ---------- */
+:root, [data-theme="light"] {
+  --bg:        #f4f5f7;
+  --bg-2:      #eceef1;
+  --surface:   #ffffff;
+  --surface-2: #f8f9fb;
+  --border:    #e3e6ea;
+  --border-2:  #d3d8de;
+  --text:      #1c2430;
+  --text-2:    #5a6675;
+  --text-3:    #8a93a0;
+  --primary:   #2f6df6;
+  --primary-2: #1f5be0;
+  --primary-soft: #e8f0ff;
+  --good:      #18a957;
+  --good-soft: #e3f6ec;
+  --warn:      #e0892b;
+  --warn-soft: #fdf0e0;
+  --bad:       #e0463e;
+  --bad-soft:  #fbe6e5;
+  --chip:      #eef1f5;
+  --chip-on:   #e8f0ff;
+  --stage-bg:  #e9ebef;
+}
+
+/* ---------- Dark theme ---------- */
+[data-theme="dark"] {
+  --bg:        #0f1217;
+  --bg-2:      #151a21;
+  --surface:   #181d25;
+  --surface-2: #1f2630;
+  --border:    #2a323d;
+  --border-2:  #38424f;
+  --text:      #e7ebf0;
+  --text-2:    #a4afbd;
+  --text-3:    #74808f;
+  --primary:   #5b8dff;
+  --primary-2: #7aa2ff;
+  --primary-soft: #1b2740;
+  --good:      #3ad17e;
+  --good-soft: #15291f;
+  --warn:      #f0a857;
+  --warn-soft: #2c2113;
+  --bad:       #ff6b62;
+  --bad-soft:  #2c1715;
+  --chip:      #232b35;
+  --chip-on:   #1b2740;
+  --stage-bg:  #0b0e12;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden; /* panels scroll individually */
+  display: flex; flex-direction: column;
+}
+
+h1, h2, h3, h4 { margin: 0; font-weight: 600; }
+button { font-family: inherit; cursor: pointer; }
+input, select, textarea { font-family: inherit; color: inherit; }
+a { color: var(--primary); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 8px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+::-webkit-scrollbar-track { background: transparent; }
+
+.visually-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }

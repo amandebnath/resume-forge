@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResumeForge - ATS-friendly resume builder</title>
+  <meta name="version" content="1.0.0" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/preview.css" />
+</head>
+<body>
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="rf-grad-ui" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#3b82f6"/><stop offset="1" stop-color="#7c5cff"/>
+            </linearGradient>
+          </defs>
+          <rect width="48" height="48" rx="13" fill="url(#rf-grad-ui)"/>
+          <text x="24" y="33" text-anchor="middle" font-family="Inter, 'Segoe UI', Arial, sans-serif"
+                font-weight="800" font-size="23" letter-spacing="-1.8" fill="#fff">R<tspan fill="#d6e4ff">F</tspan></text>
+        </svg>
+      </span>
+      <span class="brand-name">ResumeForge</span>
+    </div>
+
+    <div class="topbar__controls">
+      <label class="ctrl">
+        <span class="ctrl__label">Template</span>
+        <select id="select-template" class="select"></select>
+      </label>
+
+      <label class="ctrl">
+        <span class="ctrl__label">Profile</span>
+        <select id="select-type" class="select">
+          <option value="experienced">Experienced Professional</option>
+          <option value="fresher">Fresher</option>
+          <option value="studyabroad">Study Abroad</option>
+        </select>
+      </label>
+
+      <label class="ctrl">
+        <span class="ctrl__label">Page</span>
+        <select id="select-pagesize" class="select">
+          <option value="A4">A4</option>
+          <option value="Letter">Letter</option>
+        </select>
+      </label>
+
+      <div class="ctrl ctrl--zoom">
+        <span class="ctrl__label">Zoom</span>
+        <div class="zoom">
+          <button class="zoom__btn" id="zoom-out" title="Zoom out">&minus;</button>
+          <input id="zoom-val" class="zoom__val" type="text" inputmode="numeric" value="100%" title="Type a zoom % and press Enter" aria-label="Zoom percentage" />
+          <button class="zoom__btn" id="zoom-in" title="Zoom in">+</button>
+        </div>
+      </div>
+
+      <button id="theme-toggle" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">
+        <span class="theme-icon">D</span>
+      </button>
+
+      <button id="btn-resumes" class="btn btn--ghost" title="Save / load resumes">My Resumes</button>
+      <button id="btn-reset" class="btn btn--ghost" title="Reset to sample data">Reset</button>
+      <button id="btn-download" class="btn btn--primary">Download PDF</button>
+    </div>
+
+    <!-- Mobile panel switcher -->
+    <div class="panel-switch" id="panel-switch">
+      <button data-panel="left" class="panel-switch__btn is-active">Edit</button>
+      <button data-panel="center" class="panel-switch__btn">Preview</button>
+      <button data-panel="right" class="panel-switch__btn">ATS</button>
+    </div>
+  </header>
+
+  <!-- ============ MAIN 3-PANEL LAYOUT ============ -->
+  <main class="workspace">
+    <section class="panel panel--left" id="panel-left" aria-label="Resume editor">
+      <div class="panel__head">
+        <h2 class="panel__title">Content</h2>
+        <span class="panel__hint">Edits apply live</span>
+      </div>
+      <div class="panel__body" id="editor-root"></div>
+      <div class="panel__foot">
+        <div class="add-section">
+          <select id="add-section-select" class="select select--full"></select>
+          <button id="add-section-btn" class="btn btn--soft">+ Add section</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel--center" id="panel-center" aria-label="Resume preview">
+      <div class="preview-scroll" id="preview-scroll">
+        <div class="preview-stage" id="preview-stage">
+          <div class="resume-page" id="resume-page"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel--right" id="panel-right" aria-label="Resume analysis">
+      <div class="panel__head">
+        <h2 class="panel__title">Resume Analysis</h2>
+      </div>
+      <div class="panel__body" id="ats-root"></div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="appfooter">
+    ResumeForge is free to use for everyone
+    <span class="sep">|</span>
+    <span class="copy">&copy; Aman Debnath - 2026</span>
+    <span class="sep">|</span>
+    Bangalore, India
+    <span class="sep">|</span>
+    <span id="app-version" class="appfooter__ver"></span>
+  </footer>
+
+  <!-- print target gets cloned resume on download -->
+  <div id="print-area" aria-hidden="true"></div>
+  <style id="page-size-style"></style>
+
+  <!-- ============ SAVE / LOAD MODAL ============ -->
+  <div class="modal" id="resumes-modal" hidden>
+    <div class="modal__backdrop" data-close="1"></div>
+    <div class="modal__card" role="dialog" aria-modal="true" aria-label="Saved resumes">
+      <div class="modal__head">
+        <h3 class="modal__title">My Resumes</h3>
+        <button class="icon-btn" id="modal-close" title="Close">X</button>
+      </div>
+      <div class="modal__body">
+        <div class="save-now">
+          <input class="input" id="save-name" placeholder="Name this resume e.g. Frontend - Acme Corp" />
+          <button class="btn btn--primary" id="save-as-btn">Save</button>
+        </div>
+        <div class="save-meta">
+          <span id="save-count" class="subtle"></span>
+          <span class="save-actions">
+            <button class="btn btn--ghost btn--sm" id="export-btn" title="Download this resume as a .json backup">Export</button>
+            <label class="btn btn--ghost btn--sm" title="Load a resume from a .json file">Import
+              <input type="file" id="import-input" accept="application/json" hidden />
+            </label>
+          </span>
+        </div>
+        <hr class="divider" />
+        <div id="saves-list" class="saves-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- toast -->
+  <div id="toast" class="toast" hidden></div>
+
+  <!-- scripts: plain (non-module) so the tool runs by just opening index.html -->
+  <script src="js/version.js"></script>
+  <script src="js/keywords.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/jd.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/ats.js"></script>
+  <script src="js/pdf.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

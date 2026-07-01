@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="ResumeForge - free ATS-friendly resume builder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f6df6"/>
+      <stop offset="0.55" stop-color="#5a63f0"/>
+      <stop offset="1" stop-color="#7c5cff"/>
+    </linearGradient>
+    <linearGradient id="tile" x1="0" y1="0" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dbe6ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="320" fill="url(#bg)"/>
+
+  <!-- decorative resume card on the right -->
+  <g opacity="0.10"><rect x="930" y="46" width="218" height="228" rx="14" fill="#ffffff"/></g>
+  <g opacity="0.22" stroke="#ffffff" stroke-width="6" stroke-linecap="round">
+    <line x1="962" y1="92" x2="1116" y2="92"/>
+    <line x1="962" y1="122" x2="1086" y2="122"/>
+    <line x1="962" y1="152" x2="1116" y2="152"/>
+    <line x1="962" y1="182" x2="1064" y2="182"/>
+    <line x1="962" y1="212" x2="1104" y2="212"/>
+    <line x1="962" y1="242" x2="1040" y2="242"/>
+  </g>
+  <g opacity="0.5"><circle cx="1075" cy="60" r="22" fill="none" stroke="#ffffff" stroke-width="5"/>
+    <path d="M1066 60 l7 7 l12 -14" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+
+  <!-- RF logo tile -->
+  <rect x="72" y="100" width="104" height="104" rx="26" fill="url(#tile)"/>
+  <text x="124" y="172" text-anchor="middle" font-family="Inter, 'Segoe UI', Arial, Helvetica, sans-serif" font-weight="800" font-size="50" letter-spacing="-3" fill="#3b4fd6">RF</text>
+
+  <!-- wordmark + tagline -->
+  <text x="208" y="142" font-family="Inter, 'Segoe UI', Arial, Helvetica, sans-serif" font-weight="800" font-size="58" letter-spacing="-1.5" fill="#ffffff">ResumeForge</text>
+  <text x="210" y="182" font-family="Inter, 'Segoe UI', Arial, Helvetica, sans-serif" font-weight="500" font-size="21" fill="#e9eeff">Free, ATS-friendly resume builder &#8212; build, tailor &amp; export in minutes.</text>
+
+  <!-- feature pills -->
+  <g font-family="Inter, 'Segoe UI', Arial, Helvetica, sans-serif" font-weight="600" font-size="15" fill="#ffffff">
+    <rect x="208" y="214" width="108" height="34" rx="17" fill="#ffffff" fill-opacity="0.16"/><text x="262" y="236" text-anchor="middle">ATS Score</text>
+    <rect x="325" y="214" width="126" height="34" rx="17" fill="#ffffff" fill-opacity="0.16"/><text x="388" y="236" text-anchor="middle">JD Tailoring</text>
+    <rect x="460" y="214" width="198" height="34" rx="17" fill="#ffffff" fill-opacity="0.16"/><text x="559" y="236" text-anchor="middle">Save up to 50 Resumes</text>
+    <rect x="667" y="214" width="132" height="34" rx="17" fill="#ffffff" fill-opacity="0.16"/><text x="733" y="236" text-anchor="middle">Works Offline</text>
+    <rect x="808" y="214" width="104" height="34" rx="17" fill="#ffffff" fill-opacity="0.16"/><text x="860" y="236" text-anchor="middle">100% Free</text>
+  </g>
+</svg>

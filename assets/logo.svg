@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="ResumeForge logo">
+  <defs>
+    <linearGradient id="rf-grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#7c5cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="13" fill="url(#rf-grad)"/>
+  <!-- simple modern RF monogram: R solid, F two-tone for depth -->
+  <text x="24" y="33" text-anchor="middle"
+        font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="800"
+        font-size="23" letter-spacing="-1.8" fill="#ffffff">R<tspan fill="#d6e4ff">F</tspan></text>
+</svg>

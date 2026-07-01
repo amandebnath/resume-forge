@@ -1,0 +1,93 @@
+/* ===========================================================
+   preview.css — the resume page itself + print rules
+   The on-screen .resume-page IS the printed page (real text -> ATS-safe)
+   =========================================================== */
+
+.resume-page {
+  background: #ffffff;
+  color: #111;
+  box-shadow: var(--shadow-pop);
+  width: 210mm;
+  min-height: 297mm;
+  padding: 13mm 14mm;
+  font-family: var(--font-serif);
+  font-size: 10.5pt;
+  line-height: 1.28;
+  position: relative;
+}
+[data-theme="dark"] .resume-page { box-shadow: 0 10px 40px rgba(0,0,0,.6); }
+
+/* ----- shared resume elements ----- */
+.r-name { text-align: center; font-size: 22pt; font-weight: 700; letter-spacing: .3px; margin-bottom: 1px; }
+.r-headline { text-align: center; font-size: 11pt; color: #333; margin-bottom: 3px; }
+.r-contact { text-align: center; font-size: 9.5pt; color: #222; }
+.r-contact a { color: #1a4ed8; text-decoration: none; }
+.r-contact .sep { color: #888; margin: 0 5px; }
+.r-ico { vertical-align: -1.5px; margin-right: 3px; }
+/* mono templates keep links black so icons + text read as B/W */
+.tpl-classic .r-contact a { color: #111; }
+
+.r-section { margin-top: 11px; }
+.r-section__title {
+  font-size: 11pt; font-weight: 700; text-transform: uppercase; letter-spacing: .6px;
+  border-bottom: 1px solid #222; padding-bottom: 2px; margin-bottom: 5px;
+}
+.r-summary { margin: 0; }
+.r-entry { margin-bottom: 7px; page-break-inside: avoid; break-inside: avoid; }
+.r-entry__row { display: flex; justify-content: space-between; gap: 10px; }
+.r-entry__left { min-width: 0; }
+.r-entry__title { font-weight: 700; }
+.r-entry__sub { font-style: italic; }
+.r-entry__right { text-align: right; white-space: nowrap; font-size: 9.5pt; }
+.r-entry__date { font-style: italic; }
+.r-bullets { margin: 2px 0 0; padding-left: 16px; }
+.r-bullets li { margin-bottom: 1.5px; padding-left: 2px; }
+.r-skillline { margin-bottom: 2px; }
+.r-skillline b { font-weight: 700; }
+.r-pub { margin-bottom: 4px; padding-left: 16px; text-indent: -16px; }
+
+/* ----- TEMPLATE: modern (sans, left-aligned name, accent rule) ----- */
+.resume-page.tpl-modern { font-family: var(--font-sans); font-size: 10pt; }
+.tpl-modern .r-name { text-align: left; font-size: 21pt; }
+.tpl-modern .r-headline { text-align: left; color: var(--accent, #2f6df6); font-weight: 600; }
+.tpl-modern .r-contact { text-align: left; }
+.tpl-modern .r-section__title { color: var(--accent, #2f6df6); border-bottom: 2px solid var(--accent, #2f6df6); }
+
+/* ----- TEMPLATE: creative (graphic design) ----- */
+.resume-page.tpl-creative { font-family: var(--font-sans); font-size: 10pt; }
+.tpl-creative .r-name { text-align: left; font-size: 24pt; letter-spacing: -.3px; }
+.tpl-creative .r-headline { text-align: left; color: var(--accent, #c0392b); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 10pt; }
+.tpl-creative .r-contact { text-align: left; }
+.tpl-creative .r-section__title { color: #111; border-bottom: 2px solid var(--accent, #c0392b); }
+
+/* ----- TEMPLATE: academic (researcher) ----- */
+.resume-page.tpl-academic { font-family: var(--font-serif); font-size: 10.5pt; }
+.tpl-academic .r-bullets li, .tpl-academic .r-pub { text-align: justify; }
+.tpl-academic .r-section__title { letter-spacing: 1px; }
+
+/* page-size helper applied by JS (screen preview only) */
+.resume-page[data-size="Letter"] { width: 8.5in; min-height: 11in; padding: 0.55in 0.6in; }
+
+/* ============== PRINT (download = browser "Save as PDF") ==============
+   Page margins are provided by @page (set in pdf.js). The print clone
+   drops its fixed width / height / padding so the content flows and only
+   paginates when it genuinely exceeds one page - no spurious 2nd page. */
+@media print {
+  html, body { background: #fff !important; height: auto !important; overflow: visible !important; }
+  body { display: block !important; }
+  body.is-printing > *:not(#print-area) { display: none !important; }
+  body.is-printing #print-area { display: block !important; }
+
+  #print-area .resume-page {
+    width: auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    zoom: 1 !important;
+    transform: none !important;
+  }
+}
+
+#print-area { display: none; }
