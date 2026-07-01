@@ -23,4 +23,4 @@ First production release.
 - Manually editable zoom (25%-300%).
 - 3D button styling, capsule top-bar controls, RF logo + favicon, centered footer.
 
-[1.0.0]: https://REPLACE-ME.pages.dev
+[1.0.0]: https://resume-forge.amandebnath66.workers.dev/

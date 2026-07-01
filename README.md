@@ -12,14 +12,12 @@
 </p>
 
 <p align="center">
-  <a href="https://REPLACE-ME.pages.dev">
+  <a href="https://resume-forge.amandebnath66.workers.dev/">
     <img src="https://img.shields.io/badge/%E2%96%B6%20Live%20Demo-Open%20ResumeForge-2f6df6?style=for-the-badge" alt="Live demo" />
   </a>
 </p>
 
 <p align="center"><b>Build a clean, recruiter-ready, ATS-safe resume in your browser — no sign-up, no cost, nothing uploaded.</b></p>
-
-> **Heads up — replace the placeholder links** marked `REPLACE-ME` (the live demo URL above and the social links at the bottom) with your own once you've deployed.
 
 ---
 
@@ -56,7 +54,7 @@ It runs entirely in your browser. No account, no server, no tracking, and it kee
 
 **Option B — use the hosted version**
 
-Visit the live link: **[ResumeForge](https://REPLACE-ME.pages.dev)** *(replace with your deployed URL)*.
+Visit the live link: **[ResumeForge](https://resume-forge.amandebnath66.workers.dev/)**.
 
 ## The interface
 
@@ -189,9 +187,9 @@ Released under the [MIT License](LICENSE) - free to use, modify, and share.
 </p>
 
 <p align="center">
-  <a href="https://linkedin.com/in/REPLACE-ME"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="https://github.com/REPLACE-ME"><img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="GitHub" /></a>
-  <a href="https://x.com/REPLACE-ME"><img src="https://img.shields.io/badge/X-000000?logo=x&logoColor=white" alt="X" /></a>
+  <a href="https://www.linkedin.com/in/amandebnath"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+  <a href="https://github.com/amandebnath"><img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="GitHub" /></a>
+  <a href="https://x.com/aman_fsdev"><img src="https://img.shields.io/badge/X-000000?logo=x&logoColor=white" alt="X" /></a>
 </p>
 
 <p align="center"><sub>ResumeForge is free to use for everyone &#183; &#169; Aman Debnath 2026 &#183; Bangalore, India</sub></p>
