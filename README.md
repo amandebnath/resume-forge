@@ -60,17 +60,18 @@ Visit the live link: **[ResumeForge](https://resume-forge.amandebnath66.workers.
 
 ResumeForge has three panels:
 
-| Panel | What it does |
-|-------|--------------|
-| **Left - Content** | Every section of your resume, fully editable. Add, reorder (drag the grip), hide, or delete sections. |
-| **Middle - Preview** | An exact A4/Letter page that updates live as you type. Zoom in/out or type an exact zoom %. |
-| **Right - Analysis** | Live ATS readiness score, a fix-it checklist, and a "Tailor to JD" tab to match a job description. |
+| Panel                | What it does                                                                                          |
+| -------------------- | ----------------------------------------------------------------------------------------------------- |
+| **Left - Content**   | Every section of your resume, fully editable. Add, reorder (drag the grip), hide, or delete sections. |
+| **Middle - Preview** | An exact A4/Letter page that updates live as you type. Zoom in/out or type an exact zoom %.           |
+| **Right - Analysis** | Live ATS readiness score, a fix-it checklist, and a "Tailor to JD" tab to match a job description.    |
 
 On narrow screens the three panels collapse into an **Edit / Preview / ATS** switcher.
 
 ## Features (a quick manual)
 
 **Writing**
+
 - Inline editor for every section: summary, experience, education, projects, skills, and more.
 - **Predefined keyword chips** for skills, languages, degrees, and job titles - plus a **Custom** input everywhere for anything not on the list.
 - **Add custom sections** (entry-based or simple bullet list) via the "+ Add section" menu.
@@ -78,6 +79,7 @@ On narrow screens the three panels collapse into an **Edit / Preview / ATS** swi
 - **Memory-foam fields**: drag-resize any text box and it stays that size - across edits, reloads, even next visit.
 
 **Look and export**
+
 - **4 templates**: Software Engineering (classic), UI/UX Design, Graphic Design, Researcher/Academic - all single-column and ATS-safe.
 - **3 profiles** seed different starter content: Experienced, Fresher, Study Abroad.
 - **A4 and Letter** page sizes.
@@ -86,11 +88,13 @@ On narrow screens the three panels collapse into an **Edit / Preview / ATS** swi
 - **Download PDF** with real, selectable, ATS-parseable text.
 
 **Get hired faster**
+
 - **Live ATS score** with a prioritised checklist (missing email, no metrics, weak verbs, missing locations, and more).
 - **Suggested keywords** tuned to the template you picked.
 - **Tailor to JD**: paste a job description and ResumeForge extracts the **job role, location, skills, and other keywords**, shows what you already match (in green) and what's missing (one click to add).
 
 **Save your work**
+
 - **Up to 50 named resumes** saved locally in your browser.
 - **Export / Import** any resume as a `.json` file for backups or moving between devices.
 - Auto-saves your in-progress edit.
@@ -101,17 +105,17 @@ On narrow screens the three panels collapse into an **Edit / Preview / ATS** swi
 2. Fill in **Personal details**, then each section on the left. Use the keyword chips to add skills fast.
 3. Watch the **ATS score** on the right climb as you resolve the checklist items.
 4. (Optional) Open **Tailor to JD**, paste the job post, and click the suggested keywords/role/location to apply them.
-5. Choose **A4** or **Letter**, then click **Download PDF**. In the print dialog keep *Margins: Default* and *Scale: 100%*, and untick *Headers and footers*.
+5. Choose **A4** or **Letter**, then click **Download PDF**. In the print dialog keep _Margins: Default_ and _Scale: 100%_, and untick _Headers and footers_.
 6. Open **My Resumes** to save it with a name, or **Export** a `.json` backup.
 
 ## Templates and profiles
 
-| Template | Best for |
-|----------|----------|
-| Software Engineering | The classic Overleaf single-column look (the default). |
-| UI/UX Design | Sans-serif, accent section rules, portfolio-forward. |
-| Graphic Design | Bold uppercase headline with a strong accent. |
-| Researcher / Academic | Serif, justified, publications-first CV style. |
+| Template              | Best for                                               |
+| --------------------- | ------------------------------------------------------ |
+| Software Engineering  | The classic Overleaf single-column look (the default). |
+| UI/UX Design          | Sans-serif, accent section rules, portfolio-forward.   |
+| Graphic Design        | Bold uppercase headline with a strong accent.          |
+| Researcher / Academic | Serif, justified, publications-first CV style.         |
 
 Switching templates keeps your content - only the styling changes.
 
